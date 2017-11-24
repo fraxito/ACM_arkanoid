@@ -19,6 +19,7 @@ public class Marcador extends GRect{
 		//setColor(Color.WHITE);
 		texto.setLabel("0");
 		texto.setFont(new Font("Arial", Font.BOLD, 18));
+		
 	}
 	
 	public void dibuja(Arkanoid _arkanoid){
