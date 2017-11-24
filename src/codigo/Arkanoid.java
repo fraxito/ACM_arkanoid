@@ -17,7 +17,7 @@ public class Arkanoid extends acm.program.GraphicsProgram{
 
 	Pelota pelota1 = new Pelota(7, Color.GREEN);
 	//Pelota pelota2 = new Pelota(30, Color.BLUE);
-	Barra barra1 = new Barra(60, 15, Color.RED);
+	Barra barra1 = new Barra(360, 15, Color.RED);
     int anchoLadrillo = 25;
     int altoLadrillo = 15;
     int espacioMenu = 200;
@@ -43,7 +43,7 @@ public class Arkanoid extends acm.program.GraphicsProgram{
 			pelota1.muevete(this);
 			//pelota2.muevete(this);
 			barra1.mueveBarra((int)pelota1.getX(), getWidth()-espacioMenu);
-			pause(2);
+			pause(1);
 		}
 		
 	}

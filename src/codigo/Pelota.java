@@ -80,7 +80,8 @@ public class Pelota extends GOval{
 		auxiliar = _arkanoid.getElementAt(posX, posY);
 
 		if (auxiliar instanceof Ladrillo){
-			if (auxiliar.getY() == posY || auxiliar.getY() + auxiliar.getHeight() == posY){
+			if (auxiliar.getY() <= posY &&
+			    auxiliar.getY() + auxiliar.getHeight() >= posY){
 				yVelocidad *= -1;
 			}
 			else if(auxiliar.getX() == posX || auxiliar.getX() + auxiliar.getWidth() == posX){
@@ -91,7 +92,18 @@ public class Pelota extends GOval{
 			noHaChocado = false;
 		}
 		else if (auxiliar instanceof Barra){
-			yVelocidad *= -1;
+			//vamos a modificar el rebote de la bola con el cursor
+			//para que no sea siempre igual
+			
+			//calculo la posición x del punto central de la bola
+			double centroBola = getX() + getWidth()/2;
+			if (centroBola > auxiliar.getX() + auxiliar.getWidth()/3 && 
+				centroBola < auxiliar.getX() + 2 * auxiliar.getWidth()/3){
+				yVelocidad = -1;
+			}
+			else {
+				yVelocidad = -0.5;
+			}
 			noHaChocado = false;
 		}
 		return noHaChocado;
